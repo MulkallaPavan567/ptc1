@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papertown Consultancy - Political Strategy Experts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c41e3a;
+            --accent: #f8f9fa;
+            --text: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 76px;
+            z-index: 999;
+        }
+
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26,54,93,0.9), rgba(26,54,93,0.8)),
+                        url('https://images.unsplash.com/photo-1461360370896-922624d12aa1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--secondary);
+        }
+
+        .why-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--accent);
+            border-radius: 10px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .why-card i {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background: var(--accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: left;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+                top: 64px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Papertown Consultancies</h1>
+    </header>
+
+    <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#services">Services</a>
+        <a href="#team">Team</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Strategic Political Consulting for the Modern Age</h2>
+            <p class="lead">Empowering political success through innovative strategies</p>
+            <a href="#contact" class="cta-button">Schedule Consultation</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>Welcome to Papertown Consultancy, where political strategy meets innovation. We are a dynamic team of experienced political consultants committed to delivering strategic insights and actionable solutions to our clients. With a keen understanding of the political landscape, we help politicians, parties, and organizations navigate the complexities of today's fast-paced political environment.</p>
+        </div>
+    </section>
+
+    <section id="mission" class="section" style="background: var(--accent);">
+        <h2>Our Mission</h2>
+        <div class="mission-content">
+            <p>At Papertown Consultancy, our mission is to empower our clients with the knowledge and strategies needed to achieve their political goals. We strive to provide personalized, data-driven solutions that address the unique challenges of each client. Our approach is rooted in a deep commitment to integrity, transparency, and excellence.</p>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-chess-king"></i>
+                <h3>Strategic Planning</h3>
+                <p>Crafting comprehensive political strategies that align with your goals and objectives</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Campaign Management</h3>
+                <p>End-to-end campaign management from grassroots mobilization to media strategy</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-landmark"></i>
+                <h3>Public Affairs</h3>
+                <p>Navigating legislative and regulatory landscapes to influence public policy</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Polling & Research</h3>
+                <p>Advanced data analytics to gauge public opinion and inform decisions</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microphone"></i>
+                <h3>Media & Communications</h3>
+                <p>Developing compelling narratives and managing media relations</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section" style="background: var(--accent);">
+        <h2>Our Team</h2>
+        <div class="team-section">
+            <div class="team-member">
+                <img src="data:image/jpeg;base64,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" alt="Team Member">
+                <h3>Puneet Repalle</h3>
+                <p>Founder</p>
+                <p>15+ years in political campaign management</p>
+            </div>
+            <div class="team-member">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQGBx630ab6nPQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1633540767133?e=2147483647&v=beta&t=H6blPSOmZnpZq3FV9iJtSHCRT_WOnHhUmXl7swaFqqE" alt="Team Member">
+                <h3>Diwakar Rao Jilla</h3>
+                <p>Data Analytics Director</p>
+                <p>Expert in predictive modeling and voter analysis</p>
+            </div>
+            <div class="team-member">
+                <img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img/https://ihub-data.ai/wp-content/uploads/2025/01/Mulkalla-Pavan-Academic-Coordinator.jpg" alt="Team Member">
+                <h3>Mulkalla Pavan</h3>
+                <p>Communications Lead</p>
+                <p>Former press secretary and media relations expert</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="section">
+        <h2>Why Choose Us?</h2>
+        <div class="why-cards">
+            <div class="why-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Proven Results</h3>
+                <p>Track record of successful campaigns and policy initiatives</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-database"></i>
+                <h3>Data-Driven</h3>
+                <p>AI-powered analytics combined with human expertise</p>
+            </div>
+            <div class="why-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Ethical Practice</h3>
+                <p>Commitment to transparency and integrity in all operations</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>123 Political Avenue<br>New Delhi, India 110001</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Call Us</h3>
+                <p>+91 98765 43210<br>Mon-Fri: 9AM - 6PM</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>papertownconsultancies@gmail.com<br>24/7 Support</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-globe"></i>
+                <h3>website</h3>
+                <p>papertownconsultancies.tech<br>24/7 Support</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About</h4>
+                <p>Political strategy experts committed to democratic excellence through innovative campaigning.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#team">Team</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/papertown-consultancies/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright" style="margin-top: 3rem;">© 2024 Papertown Consultancy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
